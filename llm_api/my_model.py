@@ -23,7 +23,7 @@ class MyModelAPI:
         else:
             messages = prompt
         payload = json.dumps({
-            "model": "/home/model/Qwen1.5-14B-Chat/",
+            "model": "/my_model",
             "messages": messages,
             "max_tokens": max_tokens,
             "temperature": temperature,
