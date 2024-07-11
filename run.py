@@ -9,8 +9,8 @@ from add_prompt import PromptCreate
 from llm_api.my_model import MyModelAPI
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_path', default="A_data/test", type=str, help="data_path")
-parser.add_argument('--output_file', default="xx_A_result_14B.jsonl", type=str, help="output_path")
+parser.add_argument('--data_path', default="B_data/test", type=str, help="data_path")
+parser.add_argument('--output_file', default="xx_B_result_14B.jsonl", type=str, help="output_path")
 args = parser.parse_args()
 
 logging.basicConfig(level=logging.INFO)
@@ -24,7 +24,7 @@ def run(model_api, in_file, out_file):
     with open(in_file, "r", encoding="utf-8") as f:
         for line in f:
             questions.append(json.loads(line))
-    fd = open("error.txt", "w", encoding="utf-8")
+    fd = open("error.txt", "a+", encoding="utf-8")
     with open(out_file, "a+", encoding="utf-8") as fw:
         for question in tqdm(questions):
             # 添加prompt模板
